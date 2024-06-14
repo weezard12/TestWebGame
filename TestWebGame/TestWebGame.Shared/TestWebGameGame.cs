@@ -24,13 +24,13 @@ namespace TestWebGame
             //var font = Content.Load<BitmapFont>("nez://Nez.Content.NezDefaultBMFont.xnb");
 
             base.Initialize();
-            //Scene = new FScene();
+            Scene = new FScene();
         }
 
         protected override void Update(GameTime gameTime)
         {
             base.Update(gameTime);
-            Debug.Log("aaa");
+            //Debug.Log("aaa");
         }
     }
 }

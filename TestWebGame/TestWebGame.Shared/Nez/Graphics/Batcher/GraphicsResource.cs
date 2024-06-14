@@ -2,6 +2,7 @@ using System;
 using Microsoft.Xna.Framework.Graphics;
 
 
+
 namespace Nez
 {
 	/// <summary>
@@ -107,8 +108,12 @@ namespace Nez
 		void UpdateResourceReference(bool shouldAdd)
 		{
 			var method = shouldAdd ? "AddResourceReference" : "RemoveResourceReference";
-			var methodInfo = ReflectionUtils.GetMethodInfo(GraphicsDevice, method);
-			methodInfo.Invoke(GraphicsDevice, new object[] { _selfReference });
+			var methodInfo = ReflectionUtils.GetMethodInfo(Core.GraphicsFix, method);
+            if (methodInfo == null)
+            {
+                throw new InvalidOperationException($"Method {method} not found on GraphicsDevice.");
+            }
+            methodInfo.Invoke(Core.GraphicsFix, new object[] { _selfReference });
 		}
 	}
 }

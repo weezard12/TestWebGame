@@ -10,6 +10,7 @@ using Nez.Timers;
 using Nez.BitmapFonts;
 using Nez.Textures;
 using System.Diagnostics;
+using TestWebGame.MyGraphics;
 
 
 [assembly: System.Runtime.CompilerServices.InternalsVisibleTo("Nez.ImGui")]
@@ -44,6 +45,8 @@ namespace Nez
 		/// global access to the graphicsDevice
 		/// </summary>
 		public new static GraphicsDevice GraphicsDevice;
+
+		public static GraphicsFix GraphicsFix;
 
 		/// <summary>
 		/// global content manager for loading any assets that should stick around between scenes
@@ -216,8 +219,9 @@ namespace Nez
 
 			// prep the default Graphics system
 			GraphicsDevice = base.GraphicsDevice;
+			GraphicsFix = new GraphicsFix();
 			//var font = Content.Load<BitmapFont>("nez://Nez.Content.NezDefaultBMFont.xnb");
-			//Graphics.Instance = new Graphics();
+			Graphics.Instance = new Graphics();
 		}
 
 		protected override void Update(GameTime gameTime)

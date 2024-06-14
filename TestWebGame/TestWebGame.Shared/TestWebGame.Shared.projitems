@@ -10,6 +10,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)FScene.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MyGraphics\GraphicsFix.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Nez\Assets\Aseprite\AsepriteBlendMode.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Nez\Assets\Aseprite\AsepriteCel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Nez\Assets\Aseprite\AsepriteColorDepth.cs" />
