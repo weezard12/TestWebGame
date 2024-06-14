@@ -1,0 +1,53 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34728.123
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TestWebGame", "TestWebGame", "{02D481E8-8F38-4986-A714-409647B97501}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "TestWebGame.Shared", "TestWebGame\TestWebGame.Shared\TestWebGame.Shared.shproj", "{69012C24-003A-4001-A58C-6C76D690FF11}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestWebGame.WindowsDX", "TestWebGame\TestWebGame.WindowsDX\TestWebGame.WindowsDX.csproj", "{EDBF885C-BEA1-4465-81F7-D090EC61DDBA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestWebGame.DesktopGL", "TestWebGame\TestWebGame.DesktopGL\TestWebGame.DesktopGL.csproj", "{6B9AEE0F-C1A8-4C0C-840A-D52191DF8D28}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestWebGame.BlazorGL", "TestWebGame\TestWebGame.BlazorGL\TestWebGame.BlazorGL.csproj", "{FE9D2D68-082D-4BE7-A819-142D11ABBC63}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EDBF885C-BEA1-4465-81F7-D090EC61DDBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EDBF885C-BEA1-4465-81F7-D090EC61DDBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EDBF885C-BEA1-4465-81F7-D090EC61DDBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EDBF885C-BEA1-4465-81F7-D090EC61DDBA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6B9AEE0F-C1A8-4C0C-840A-D52191DF8D28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B9AEE0F-C1A8-4C0C-840A-D52191DF8D28}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B9AEE0F-C1A8-4C0C-840A-D52191DF8D28}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B9AEE0F-C1A8-4C0C-840A-D52191DF8D28}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE9D2D68-082D-4BE7-A819-142D11ABBC63}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE9D2D68-082D-4BE7-A819-142D11ABBC63}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE9D2D68-082D-4BE7-A819-142D11ABBC63}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE9D2D68-082D-4BE7-A819-142D11ABBC63}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{69012C24-003A-4001-A58C-6C76D690FF11} = {02D481E8-8F38-4986-A714-409647B97501}
+		{EDBF885C-BEA1-4465-81F7-D090EC61DDBA} = {02D481E8-8F38-4986-A714-409647B97501}
+		{6B9AEE0F-C1A8-4C0C-840A-D52191DF8D28} = {02D481E8-8F38-4986-A714-409647B97501}
+		{FE9D2D68-082D-4BE7-A819-142D11ABBC63} = {02D481E8-8F38-4986-A714-409647B97501}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {55F3673B-8673-4DED-823E-50693361461C}
+	EndGlobalSection
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		TestWebGame\TestWebGame.Shared\TestWebGame.Shared.projitems*{69012c24-003a-4001-a58c-6c76d690ff11}*SharedItemsImports = 13
+		TestWebGame\TestWebGame.Shared\TestWebGame.Shared.projitems*{6b9aee0f-c1a8-4c0c-840a-d52191df8d28}*SharedItemsImports = 5
+		TestWebGame\TestWebGame.Shared\TestWebGame.Shared.projitems*{edbf885c-bea1-4465-81f7-d090ec61ddba}*SharedItemsImports = 5
+		TestWebGame\TestWebGame.Shared\TestWebGame.Shared.projitems*{fe9d2d68-082d-4be7-a819-142d11abbc63}*SharedItemsImports = 5
+	EndGlobalSection
+EndGlobal
