@@ -34,10 +34,15 @@ namespace Nez
 		public Graphics()
 		{
             Batcher = new Batcher(Core.GraphicsDevice);
-            var fontTex =
-                BitmapFont.Textures[
-                    BitmapFont.DefaultCharacter.TexturePage]; // bitmapFont.defaultCharacterRegion.sprite.texture2D;
-            PixelTexture = new Sprite(fontTex, fontTex.Width - 1, fontTex.Height - 1, 1, 1);
+            //var fontTex =
+            //BitmapFont.Textures[
+            //BitmapFont.DefaultCharacter.TexturePage]; // bitmapFont.defaultCharacterRegion.sprite.texture2D;
+            var texture = new Texture2D(Core.GraphicsDevice, 1, 1);
+
+            // Set the color data to white
+            texture.SetData(new[] { Color.White });
+            PixelTexture = new Sprite(texture);
+            //PixelTexture = new Sprite(fontTex, fontTex.Width - 1, fontTex.Height - 1, 1, 1);
         }
 
 

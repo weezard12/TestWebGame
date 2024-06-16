@@ -1,6 +1,7 @@
 using System;
 using System.IO;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 
 
 namespace Nez
@@ -101,10 +102,16 @@ namespace Nez
 			if (!assembly.GetManifestResourceNames().Contains(name))
 				name = name.Replace(".Framework", ".Framework.Platform");
 #endif
-
-			using (var stream = assembly.GetManifestResourceStream(name))
+			foreach(var item in assembly.GetManifestResourceNames())
+				Debug.Log(item);
+			using (var stream = assembly.GetManifestResourceStream("MonoGame.Framework.Graphics.Effect.Resources.SpriteEffect.ogl.fxo"))
 			{
-				using (var ms = new MemoryStream())
+                if (stream == null)
+                {
+                    Debug.Log("Stream is null, resource not found.");
+                    throw new InvalidOperationException($"Resource '{name}' not found.");
+                }
+                using (var ms = new MemoryStream())
 				{
 					stream.CopyTo(ms);
 					return ms.ToArray();

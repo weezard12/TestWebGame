@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework;
 using Nez.Systems;
 using Nez.Textures;
 using Microsoft.Xna.Framework.Graphics;
+using TestWebGame;
 
 
 namespace Nez
@@ -413,10 +414,18 @@ namespace Nez
 				Debug.Error("There are no Renderers in the Scene!");
 				return;
 			}
-
-			// Renderers should always have those that require a RenderTarget first. They clear themselves and set themselves as
-			// the current RenderTarget when they render. If the first Renderer wants the sceneRenderTarget we set and clear it now.
-			if (_renderers[0].WantsToRenderToSceneRenderTarget)
+            // Set the render target to null to ensure there are no active render targets
+/*            Graphics.Instance.Batcher.GraphicsDevice.SetRenderTarget(null);
+            Graphics.Instance.Batcher.Begin();
+            Graphics.Instance.Batcher.Draw(TestWebGameGame.ds,Vector2.Zero);
+            Graphics.Instance.Batcher.DrawRect(100,100,100,100,Color.AliceBlue);
+            Graphics.Instance.Batcher.End();
+            return;*/
+            // Clear the screen with a white color
+            //Graphics.Instance.Batcher.GraphicsDevice.Clear(Color.White);
+            // Renderers should always have those that require a RenderTarget first. They clear themselves and set themselves as
+            // the current RenderTarget when they render. If the first Renderer wants the sceneRenderTarget we set and clear it now.
+            if (_renderers[0].WantsToRenderToSceneRenderTarget)
 			{
 				Core.GraphicsDevice.SetRenderTarget(_sceneRenderTarget);
 				Core.GraphicsDevice.Clear(ClearColor);

@@ -11,6 +11,7 @@ using Nez.BitmapFonts;
 using Nez.Textures;
 using System.Diagnostics;
 using TestWebGame.MyGraphics;
+using TestWebGame;
 
 
 [assembly: System.Runtime.CompilerServices.InternalsVisibleTo("Nez.ImGui")]
@@ -287,8 +288,14 @@ namespace Nez
 		{
 			if (PauseOnFocusLost && !IsActive)
 				return;
-
-			StartDebugDraw(gameTime.ElapsedGameTime);
+/*            Graphics.Instance.Batcher.GraphicsDevice.SetRenderTarget(null);
+            Graphics.Instance.Batcher.GraphicsDevice.Clear(Color.Black);
+            Graphics.Instance.Batcher.Begin();
+            Graphics.Instance.Batcher.Draw(TestWebGameGame.ds,Vector2.Zero);
+            Graphics.Instance.Batcher.DrawRect(100, 100, 100, 100, Color.AliceBlue);
+            Graphics.Instance.Batcher.End();
+            return;*/
+            StartDebugDraw(gameTime.ElapsedGameTime);
 
 			if (_sceneTransition != null)
 				_sceneTransition.PreRender(Graphics.Instance.Batcher);
@@ -325,7 +332,7 @@ namespace Nez
 			}
 
 			EndDebugDraw();
-		}
+        }
 
 
 		#endregion

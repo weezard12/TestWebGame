@@ -15,6 +15,7 @@ namespace TestWebGame
         {
             using (var game = new TestWebGameGame())
                 game.Run();
+
         }
     }
 }

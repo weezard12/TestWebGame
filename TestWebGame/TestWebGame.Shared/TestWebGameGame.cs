@@ -7,6 +7,7 @@ using Microsoft.Xna.Framework.Input.Touch;
 using Microsoft.Xna.Framework.Media;
 using Nez;
 using Nez.BitmapFonts;
+using Nez.Textures;
 using System;
 using System.Collections.Generic;
 
@@ -18,7 +19,7 @@ namespace TestWebGame
     /// </summary>
     public class TestWebGameGame : Core
     {
-
+        public static Sprite ds = new Sprite(Core.Content.Load<Texture2D>("dirt1"));
         protected override void Initialize()
         {
             //var font = Content.Load<BitmapFont>("nez://Nez.Content.NezDefaultBMFont.xnb");

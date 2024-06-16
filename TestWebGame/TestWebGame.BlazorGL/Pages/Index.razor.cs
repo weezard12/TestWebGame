@@ -29,7 +29,7 @@ namespace TestWebGame.Pages
             }
 
             // run gameloop
-            _game.Tick();
+            //_game.Tick();
         }
 
     }

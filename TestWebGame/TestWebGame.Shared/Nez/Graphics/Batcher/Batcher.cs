@@ -6,6 +6,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
 using System.Runtime.CompilerServices;
 using Nez.Textures;
+using TestWebGame.MyGraphics;
 
 
 namespace Nez
@@ -36,8 +37,8 @@ namespace Nez
 		VertexPositionColorTexture4[] _vertexInfo;
 		Texture2D[] _textureInfo;
 
-		// Default SpriteEffect
-		SpriteEffect _spriteEffect;
+        // Default SpriteEffect
+        SpriteEffect _spriteEffect;
 		EffectPass _spriteEffectPass;
 
 		// Tracks Begin/End calls
@@ -1088,23 +1089,40 @@ namespace Nez
 
 		void DrawPrimitives(Texture texture, int baseSprite, int batchSize)
 		{
-			if (_customEffect != null)
-			{
-				foreach (var pass in _customEffect.CurrentTechnique.Passes)
-				{
-					pass.Apply();
-					GraphicsDevice.Textures[0] = texture;
-					GraphicsDevice.DrawIndexedPrimitives(PrimitiveType.TriangleList, baseSprite * 4, 0, batchSize * 2);
-				}
-			}
-			else
-			{
-				GraphicsDevice.Textures[0] = texture;
-				GraphicsDevice.DrawIndexedPrimitives(PrimitiveType.TriangleList, baseSprite * 4, 0, batchSize * 2);
-			}
-		}
+            // Attempt to cast the texture to Texture2D
+            var texture2D = texture as Texture2D;
 
-		[System.Diagnostics.Conditional("DEBUG")]
+            // Check if the texture is non-power-of-two
+            if (texture2D != null && (!IsPowerOfTwo(texture2D.Width) || !IsPowerOfTwo(texture2D.Height)))
+            {
+                GraphicsDevice.SamplerStates[0] = SamplerState.LinearClamp;
+            }
+            else
+            {
+                GraphicsDevice.SamplerStates[0] = SamplerState.LinearWrap;
+            }
+
+            GraphicsDevice.Textures[0] = texture;
+
+            if (_customEffect != null)
+            {
+                foreach (var pass in _customEffect.CurrentTechnique.Passes)
+                {
+                    pass.Apply();
+                    GraphicsDevice.DrawIndexedPrimitives(PrimitiveType.TriangleList, baseSprite * 4, 0, batchSize * 2);
+                }
+            }
+            else
+            {
+                GraphicsDevice.DrawIndexedPrimitives(PrimitiveType.TriangleList, baseSprite * 4, 0, batchSize * 2);
+            }
+        }
+        bool IsPowerOfTwo(int x)
+        {
+            return (x & (x - 1)) == 0;
+        }
+
+        [System.Diagnostics.Conditional("DEBUG")]
 		void CheckBegin()
 		{
 			if (!_beginCalled)
